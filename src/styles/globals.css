@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: theme('fontFamily.sans');
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-paper text-ink;
+    margin: 0;
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-ink-strong;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  :focus-visible {
+    outline: 2px solid theme('colors.accent.forward');
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply bg-paper-panel border border-paper-rule rounded-lg shadow-panel;
+  }
+
+  .panel-heading {
+    @apply text-xs font-semibold tracking-wide uppercase text-ink-muted;
+  }
+
+  .panel-divider {
+    @apply border-t border-paper-rule my-4;
+  }
+
+  .mv-tag {
+    @apply inline-flex items-center px-2 py-0.5 rounded-sm text-[0.7rem] font-mono uppercase
+      tracking-wide bg-paper-soft text-ink-muted border border-paper-rule;
+  }
+
+  .scaffold-note {
+    @apply text-[0.75rem] uppercase tracking-wide text-ink-subtle font-mono;
+  }
+
+  .placeholder-frame {
+    @apply border border-dashed border-paper-rule rounded-md bg-paper-soft/40;
+  }
+
+  .formula-display .katex-display {
+    margin: 0;
+  }
+
+  .formula-display .katex {
+    font-size: 1.05rem;
+    color: theme('colors.ink.strong');
+  }
+}
+
+@layer utilities {
+  .text-forward {
+    color: theme('colors.accent.forward');
+  }
+  .text-backward {
+    color: theme('colors.accent.backward');
+  }
+  .text-gradient-accent {
+    color: theme('colors.accent.gradient');
+  }
+}
